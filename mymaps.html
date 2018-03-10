@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>根据文档写出来的地图示例</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<!--引入百度地图-->
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fXXEYIgxuH1oSc20Ga1n4uVdBa9vTMCt"></script>
+		<!--引入jQuery-->
+		<script type="text/javascript" src=jQuery/jquery-3.1.0.js></script>
+	</head>
+	<body>
+		<button class="btn btn-default" id="btna">开始签到</button>
+		<div id="position">
+			hello
+		</div>
+	</body>
+	<script type="text/javascript">
+		//获取浏览器地址
+		
+		function get_Position(){
+			//hello是用来测试函数是否成功的
+			alert("hello!");
+			//定义地图（以此来获得浏览器的地址！
+			var map = new BMap.Map("position");
+			var geolocation = new BMap.Geolocation();
+			geolocation.getCurrentPosition(function(r){
+			if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			var mk = new BMap.Marker(r.point);
+			map.addOverlay(mk);
+			map.panTo(r.point);
+			
+			var jing = r.point.lng;
+			var wei = r.point.lat;
+			
+			alert('您的位置：'+jing+','+wei);
+			
+			//将经度和纬度传给stu_position.php
+			
+		}
+		else {
+			alert('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+			
+			
+	//关于状态码
+	//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+	//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+	//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+	//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+	//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+	//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+	//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+	//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+	//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+			
+		}
+		
+		
+		//当按钮被按下触发获取地址的事件
+		document.getElementById("btna").onclick=function(){
+			
+			get_Position();
+		};
+	</script>
+</html>

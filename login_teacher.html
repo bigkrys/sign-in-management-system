@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>教师登录页面</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="icon" type="img/x-ico" href="img/L.ico" />
+
+	<link rel="stylesheet" type="text/css" href="css/login.css"/>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="jQuery/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+		
+	<div class="wrapper">
+		<p class="p0">欢迎使用签到管理系统</p>
+		<div class="content">
+			
+			<form action="login_teacher.php" method="post">
+				<p>
+					<span>教工号</span>  &emsp;&emsp;<input type="text"name="userid"/>
+				</p>
+				<p class="p1">
+					<span>密码</span>  &emsp;&emsp;<input type="password"  name="userpwd"/>
+				</p>
+				<p class="p1">
+					<input type="submit" value="登录" class="btn btn-default " />
+					<a href="signup_teacher.html" class="btn btn-default " role="button">注册</a>
+					
+				</p>
+			</form>
+
+		</div>
+		
+	</div>
+
+</body>
+</html>
