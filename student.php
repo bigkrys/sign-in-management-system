@@ -10,6 +10,9 @@
 error_reporting(0);
 session_start();
 $username = $_SESSION['username'];
+$userid = $_SESSION['userid'];
+$_SESSION['userid'] = $userid;
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,6 @@ $username = $_SESSION['username'];
     <meta charset="UTF-8">
     <title>学生签到页面</title>
     <link rel="icon" type="img/x-ico" href="img/L.ico" />
-
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/student.css"/>
@@ -46,12 +48,12 @@ $username = $_SESSION['username'];
     <div class="downside">
         <div class="downleft">
             <div class="read">
-                <a href="index.html" class="readcou">查看课程</a>
+                <a href="checkmycouse.php" class="readcou">查看课程(签到过的课程)</a>
             </div>
         </div>
         <div class="downright">
             <div class="qiandao">
-                <a href="index.html" class="checkin">进行签到</a>
+                <a href="qd.php" class="checkin">进行签到</a>
             </div>
         </div>
     </div>

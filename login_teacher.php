@@ -1,7 +1,7 @@
 <?php
 //禁用错误报告
 error_reporting(0);
-
+session_start();
 
 $con = mysqli_connect('localhost','root','1011','system');
 if (!$con) {
@@ -10,10 +10,11 @@ if (!$con) {
 
 $userid = $_POST['userid'];
 $userpwd = $_POST['userpwd'];
-
+$username = $_POST['username'];
 $sql = "select * from teacher WHERE teaID='$userid' AND teaPWD='$userpwd'";
 $result = mysqli_query($con, $sql);
 $rows = mysqli_fetch_array($result);
+$_SESSION['userid'] = $userid;
 $_SESSION['username'] = $username;
 if($rows){
     echo "<script type='text/javascript'>alert('登陆成功');location='teacher.php';</script>";
